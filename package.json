@@ -1,0 +1,34 @@
+{
+  "name": "mad-atlas",
+  "version": "0.1.0",
+  "description": "Pre-built TopoJSON from the Madrid City Council",
+  "scripts": {
+    "prepublish": "bash prepublish",
+    "postpublish": "git push && git push --tags && cd ../martgnz.github.io && git pull && cp -v ../mad-atlas/mad/census_tracts.json mad-census_tracts.v1.json && git add mad-census_tracts.v1.json && git commit -m \"mad-atlas ${npm_package_version}\" && git push && cd -"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martgnz/mad-atlas.git"
+  },
+  "keywords": [
+    "topojson",
+    "geojson",
+    "shapefile",
+    "madrid"
+  ],
+  "author": "Martín González (https://martingonzalez.net)",
+  "license": "MIT",
+  "devDependencies": {
+    "d3-dsv": "^1.0.3",
+    "d3-geo-projection": "^1.2.1",
+    "ndjson-cli": "^0.3.0",
+    "shapefile": "^0.5.9",
+    "topojson-server": "^2.0.0",
+    "topojson-client": "^2.1.0",
+    "topojson-simplify": "^2.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/martgnz/mad-atlas/issues"
+  },
+  "homepage": "https://github.com/martgnz/mad-atlas#readme",
+}
