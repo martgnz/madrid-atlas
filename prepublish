@@ -18,7 +18,7 @@ geo2topo -n census_tracts=<( \
   | toposimplify -f -p $SP \
   | topomerge neighborhoods=census_tracts -k 'd.properties.CODBAR' \
   | topomerge districts=neighborhoods -k 'd.properties.CODDIS' \
-  | topomerge madrid=districts \
+  | topomerge city=districts \
   > mad/census_tracts.json
 
 # Inspired by: https://bl.ocks.org/mbostock/39b34968ad5eab65de1d7da81f78bb27
@@ -30,7 +30,7 @@ topo2geo -n \
   census_tracts=mad/_census_tracts.json \
   neighborhoods=mad/_neighborhoods.json \
   districts=mad/_districts.json \
-  madrid=mad/_madrid.json
+  city=mad/_city.json
 
 geo2topo -n \
   census_tracts=<( \
@@ -42,10 +42,10 @@ geo2topo -n \
   districts=<( \
       cat mad/_districts.json \
         | ndjson-map '(delete d.properties, d)') \
-  madrid=<( \
-      cat mad/_madrid.json \
+  city=<( \
+      cat mad/_city.json \
         | ndjson-map '(delete d.properties, d)') \
   | topoquantize $QU \
   > mad/census_tracts.json
 
-rm mad/_census_tracts.json mad/_neighborhoods.json mad/_districts.json mad/_madrid.json
+rm mad/_census_tracts.json mad/_neighborhoods.json mad/_districts.json mad/_city.json

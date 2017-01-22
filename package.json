@@ -4,7 +4,7 @@
   "description": "Pre-built TopoJSON from the Madrid City Council",
   "scripts": {
     "prepublish": "bash prepublish",
-    "postpublish": "git push && git push --tags && cd ../martgnz.github.io && git pull && cp -v ../mad-atlas/mad/census_tracts.json mad-census_tracts.v1.json && git add mad-census_tracts.v1.json && git commit -m \"mad-atlas ${npm_package_version}\" && git push && cd -"
+    "postpublish": "git push && git push --tags && cd ../martgnz.github.io && git pull && cp -v ../mad-atlas/mad/census_tracts.json mad-census-tracts.v1.json && git add mad-census-tracts.v1.json && git commit -m \"mad-atlas ${npm_package_version}\" && git push && cd -"
   },
   "repository": {
     "type": "git",
@@ -30,5 +30,5 @@
   "bugs": {
     "url": "https://github.com/martgnz/mad-atlas/issues"
   },
-  "homepage": "https://github.com/martgnz/mad-atlas#readme",
+  "homepage": "https://github.com/martgnz/mad-atlas#readme"
 }
