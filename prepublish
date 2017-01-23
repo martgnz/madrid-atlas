@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Simplification
-SP=0.0001
-
 # Quantization
 QU=1e4
 
@@ -22,7 +19,6 @@ ogr2ogr \
 geo2topo -n census_tracts=<( \
     shp2json -n build/census_tracts.shp \
       | ndjson-map '(d.id = d.properties.CODSECCION, d)') \
-  | toposimplify -f -p $SP \
   | topomerge neighborhoods=census_tracts -k 'd.properties.CODBAR' \
   | topomerge districts=neighborhoods -k 'd.properties.CODDIS' \
   | topomerge city=districts \
