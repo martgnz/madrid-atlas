@@ -21,7 +21,6 @@
   "devDependencies": {
     "d3-dsv": "^1.0.3",
     "d3-geo-projection": "^1.2.1",
-    "gdal": "^0.9.4",
     "ndjson-cli": "^0.3.0",
     "shapefile": "^0.5.9",
     "topojson-client": "^2.1.0",
