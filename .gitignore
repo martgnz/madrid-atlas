@@ -1,4 +1,5 @@
 build/
+tests/
 node_modules
 npm-debug.log
-mad/
+madrid/
