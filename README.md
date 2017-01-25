@@ -7,14 +7,13 @@ In a browser (using [d3-geo](https://github.com/d3/d3-geo) and Canvas):
 
 ```html
 <!DOCTYPE html>
-<canvas width="960" height="500"></canvas>
+<canvas width="960" height="600"></canvas>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="https://d3js.org/topojson.v2.min.js"></script>
 <script>
 
 var context = d3.select("canvas").node().getContext("2d"),
-  projection = d3.geoMercator(),
-  path = d3.geoPath(projection, context);
+    path = d3.geoPath().context(context);
 
 d3.json("https://martingonzalez.net/mad-census-tracts.v1.json", function(error, mad) {
   if (error) throw error;
@@ -37,10 +36,9 @@ var fs = require("fs"),
   Canvas = require("canvas"),
   mad = require("./node_modules/mad-atlas/mad/census_tracts.json");
 
-var canvas = new Canvas(960, 500),
+var canvas = new Canvas(960, 600),
   context = canvas.getContext("2d"),
-  projection = d3.geoMercator(),
-  path = d3.geoPath(projection, context);
+  path = d3.geoPath().context(context);
 
 context.beginPath();
 path(topojson.mesh(mad));
@@ -60,19 +58,19 @@ A TopoJSON which contains five objects: *census tracts*, *neighborhoods*, *distr
 
 <a href="#mad/census_tracts.json_census_tracts" name="mad/census_tracts.json_census_tracts">#</a> *mad*.objects.<b>census_tracts</b>
 
-...
+<img src="https://cloud.githubusercontent.com/assets/1236790/22272536/f742bd7a-e29a-11e6-8dd8-5f618b82acc5.png" width="480" height="auto">
 
 <a href="#mad/census_tracts.json_neighborhoods" name="mad/census_tracts.json_neighborhoods">#</a> *mad*.objects.<b>neighborhoods</b>
 
-...
+<img src="https://cloud.githubusercontent.com/assets/1236790/22272610/60be5084-e29b-11e6-9cca-dc8ee094d9eb.png" width="480" height="auto">
 
 <a href="#mad/census_tracts.json_districts" name="mad/census_tracts.json_districts">#</a> *mad*.objects.<b>districts</b>
 
-...
+<img src="https://cloud.githubusercontent.com/assets/1236790/22272630/7df7c144-e29b-11e6-9c21-12be27d03035.png" width="480" height="auto">
 
 <a href="#mad/census_tracts.json_city" name="mad/census_tracts.json_city">#</a> *mad*.objects.<b>city</b>
 
-...
+<img src="https://cloud.githubusercontent.com/assets/1236790/22272646/99ba2caa-e29b-11e6-8ec0-d30f176875c7.png" width="480" height="auto">
 
 
 ### Inspiration
