@@ -3,8 +3,8 @@
 # Quantization
 QU=1e4
 
-rm -rvf mad
-mkdir -p build mad
+rm -rvf madrid
+mkdir -p build madrid
 
 curl -o build/Secciones.zip -C - 'http://www.madrid.es/UnidadesDescentralizadas/UDCEstadistica/Nuevaweb/Territorio,%20Clima%20y%20Medio%20Ambiente/Territorio/Cartograf%C3%ADa/etrs89/Seccionado/Seccionado%20vigente/Secciones.zip'
 unzip -jod build build/Secciones.zip
@@ -17,33 +17,33 @@ geo2topo -n census_tracts=<( \
   | topomerge neighborhoods=census_tracts -k 'd.properties.CODBAR' \
   | topomerge districts=neighborhoods -k 'd.properties.CODDIS' \
   | topomerge city=districts \
-  > mad/census_tracts.json
+  > madrid/census_tracts.json
 
 # Inspired by: https://bl.ocks.org/mbostock/39b34968ad5eab65de1d7da81f78bb27
 # Re-compute the topology as a further optimization.
 # This consolidates unique sequences of arcs.
 # https://github.com/topojson/topojson-simplify/issues/4
 topo2geo -n \
-  < mad/census_tracts.json \
-  census_tracts=mad/_census_tracts.json \
-  neighborhoods=mad/_neighborhoods.json \
-  districts=mad/_districts.json \
-  city=mad/_city.json
+  < madrid/census_tracts.json \
+  census_tracts=madrid/_census_tracts.json \
+  neighborhoods=madrid/_neighborhoods.json \
+  districts=madrid/_districts.json \
+  city=madrid/_city.json
 
 geo2topo -n \
   census_tracts=<( \
-      cat mad/_census_tracts.json \
+      cat madrid/_census_tracts.json \
         | ndjson-map '(delete d.properties, d)') \
   neighborhoods=<( \
-      cat mad/_neighborhoods.json \
+      cat madrid/_neighborhoods.json \
         | ndjson-map '(delete d.properties, d)') \
   districts=<( \
-      cat mad/_districts.json \
+      cat madrid/_districts.json \
         | ndjson-map '(delete d.properties, d)') \
   city=<( \
-      cat mad/_city.json \
+      cat madrid/_city.json \
         | ndjson-map '(delete d.properties, d)') \
   | topoquantize $QU \
-  > mad/census_tracts.json
+  > madrid/census_tracts.json
 
-rm mad/_census_tracts.json mad/_neighborhoods.json mad/_districts.json mad/_city.json
+rm madrid/_census_tracts.json madrid/_neighborhoods.json madrid/_districts.json madrid/_city.json
