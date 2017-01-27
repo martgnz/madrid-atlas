@@ -75,4 +75,6 @@ A TopoJSON which contains five objects: *census tracts*, *neighborhoods*, *distr
 
 ### Inspiration
 
-The original idea and implementation comes from Mike Bostock’s [us-atlas](https://github.com/topojson/us-atlas) and [world-atlas](https://github.com/topojson/world-atlas). Check out [es-atlas](https://github.com/martgnz/es-atlas), a package which provides Spanish administrative regions' data with the same format.
+The original idea and implementation comes from Mike Bostock’s [us-atlas](https://github.com/topojson/us-atlas) and [world-atlas](https://github.com/topojson/world-atlas).
+
+Check out [es-atlas](https://github.com/martgnz/es-atlas) and [barcelona-atlas](https://github.com/martgnz/barcelona-atlas), packages which provide other Spanish administrative regions data with the same format.
