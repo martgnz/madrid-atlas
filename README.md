@@ -54,7 +54,7 @@ If you need to make further adjustments (simplification, quantization) you can c
 ## File Reference
 <a href="#madrid/census_tracts.json" name="madrid/census_tracts.json">#</a> <b>madrid/census_tracts.json</b> [<>](https://martingonzalez.net/madrid-tracts.v1.json "Source")
 
-A TopoJSON which contains five objects: *census tracts*, *neighborhoods*, *districts* and *city*. Every tract, neighborhood and district has its corresponding identifier, so it's easy to get started. 
+A preprojected TopoJSON ([EPSG:3042](http://spatialreference.org/ref/epsg/3042/)) which contains five objects: *census tracts*, *neighborhoods*, *districts* and *city*. Every tract, neighborhood and district has its corresponding identifier, so it's easy to get started. 
 
 <a href="#madrid/census_tracts.json_census_tracts" name="madrid/census_tracts.json_census_tracts">#</a> *madrid*.objects.<b>census_tracts</b>
 
