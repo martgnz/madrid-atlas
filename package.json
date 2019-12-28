@@ -1,6 +1,6 @@
 {
   "name": "madrid-atlas",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Pre-built TopoJSON from the Madrid City Council",
   "scripts": {
     "prepare": "bash prepublish",
