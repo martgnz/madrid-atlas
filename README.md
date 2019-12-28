@@ -1,6 +1,6 @@
 # Madrid Atlas TopoJSON
 
-This repository provides a simple script to generate TopoJSON files from the Madrid City Council's [Statistics portal](http://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Estadistica/Areas-de-informacion-estadistica/Territorio-climatologia-y-medio-ambiente/Territorio/Cartografia?vgnextfmt=default&vgnextoid=aa9309789246c210VgnVCM2000000c205a0aRCRD&vgnextchannel=e59b40ebd232a210VgnVCM1000000b205a0aRCRD) vector data.
+This repository provides a simple script to generate TopoJSON files from the Madrid City Council's [Statistics portal](https://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Estadistica/Areas-de-informacion-estadistica/Territorio-climatologia-y-medio-ambiente/Territorio/Cartografia/?vgnextfmt=default&vgnextoid=aa9309789246c210VgnVCM2000000c205a0aRCRD&vgnextchannel=e59b40ebd232a210VgnVCM1000000b205a0aRCRD) vector data.
 
 ## Usage
 In a browser (using [d3-geo](https://github.com/d3/d3-geo) and Canvas):
@@ -8,14 +8,14 @@ In a browser (using [d3-geo](https://github.com/d3/d3-geo) and Canvas):
 ```html
 <!DOCTYPE html>
 <canvas width="960" height="600"></canvas>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://d3js.org/topojson.v3.min.js"></script>
 <script>
 
 var context = d3.select("canvas").node().getContext("2d"),
     path = d3.geoPath().context(context);
 
-d3.json("https://martingonzalez.net/madrid-tracts.v1.json", function(error, madrid) {
+d3.json("https://unpkg.com/madrid-atlas@1.0.0/madrid/census_tracts.json", function(error, madrid) {
   if (error) throw error;
 
   context.beginPath();

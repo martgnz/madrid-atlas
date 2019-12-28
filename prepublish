@@ -6,8 +6,8 @@ QU=1e4
 rm -rvf madrid
 mkdir -p build madrid
 
-curl -o build/Secciones.zip -C - 'http://www.madrid.es/UnidadesDescentralizadas/UDCEstadistica/Nuevaweb/Territorio,%20Clima%20y%20Medio%20Ambiente/Territorio/Cartograf%C3%ADa/etrs89/Seccionado/Seccionado%20vigente/Secciones.zip'
-unzip -jod build build/Secciones.zip
+curl -o build/Sec_2017.7z -C - 'https://www.madrid.es/UnidadesDescentralizadas/UDCEstadistica/Nuevaweb/Territorio,%20Clima%20y%20Medio%20Ambiente/Territorio/Cartograf%C3%ADa/Ficheros%20Division%20Administrativa/Ficheros%20de%20Divisi%C3%B3n%20Administrativa.%20Sistema%20de%20referencia%20ETRS89/Secciones/Vigente/Sec_2017.7z'
+7z e -obuild build/Sec_2017.7z -aoa
 
 geo2topo -n census_tracts=<( \
     shp2json build/Secciones.shp \

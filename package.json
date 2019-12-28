@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "description": "Pre-built TopoJSON from the Madrid City Council",
   "scripts": {
-    "prepublish": "bash prepublish",
-    "postpublish": "git push && git push --tags && cd ../martgnz.github.io && git pull && cp -v ../madrid-atlas/madrid/census_tracts.json madrid-tracts.v1.json && git add madrid-tracts.v1.json && git commit -m \"madrid-atlas ${npm_package_version}\" && git push && cd -"
+    "prepare": "bash prepublish",
+    "postpublish": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
@@ -19,16 +19,18 @@
   "author": "Martín González (https://martingonzalez.net)",
   "license": "MIT",
   "devDependencies": {
-    "d3-dsv": "^1.0.3",
-    "d3-geo-projection": "^1.2.1",
-    "ndjson-cli": "^0.3.0",
-    "shapefile": "^0.5.9",
-    "topojson-client": "^2.1.0",
-    "topojson-server": "^2.0.0",
-    "topojson-simplify": "^2.0.0"
+    "7zip-bin": "^5.0.3",
+    "d3-dsv": "^1.2.0",
+    "d3-geo-projection": "^2.7.1",
+    "ndjson-cli": "^0.3.1",
+    "shapefile": "^0.6.6",
+    "topojson-client": "^3.1.0",
+    "topojson-server": "^3.0.1",
+    "topojson-simplify": "^3.0.3"
   },
   "bugs": {
     "url": "https://github.com/martgnz/madrid-atlas/issues"
   },
-  "homepage": "https://github.com/martgnz/madrid-atlas#readme"
+  "homepage": "https://github.com/martgnz/madrid-atlas#readme",
+  "dependencies": {}
 }
